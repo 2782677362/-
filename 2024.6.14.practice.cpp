@@ -18,11 +18,30 @@ int climbStairs_1(int n) {
         return climbStairs_1(n - 1) + climbStairs_1(n - 2);
 }
 
-//解法二：
+//解法二：直观
+int climbStairs2(int n) {
+    if (n < 2)
+        return 1;
+    if (n == 2)
+        return 2;
+
+    int n2 = 1;//到x-2个台阶的方法数
+    int n1 = 2;//到x-1个台阶的方法数
+    int ret = 0;
+    for (int i = 2; i < n; i++)
+    {
+        ret = n1 + n2;
+        n1 = n2;
+        n2 = ret;
+    }
+    return ret;
+}
+
+//解法二优化：代码简洁但不如优化前直观
 int climbStairs_2(int n) 
 {
-    int n1 = 0;
-    int n2 = 0;
+    int n2 = 0;//到x-2个台阶的方法数
+    int n1 = 0;//到x-1个台阶的方法数
     int ret = 1;
     for (int i = 0; i < n; i++)
     {
