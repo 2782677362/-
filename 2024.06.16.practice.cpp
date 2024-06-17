@@ -54,7 +54,7 @@ public:
     }
 };
 
-//解法二：在原字符串上直接判断：收尾双指针相向移动  =>  时间O(N)  空间O(1)
+//解法二：在原字符串上直接判断：首尾双指针相向移动  =>  时间O(N)  空间O(1)
 class Solution2 {
 public:
     static bool isPalindrome(string s) {
